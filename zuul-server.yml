@@ -1,6 +1,6 @@
 server:
   port: 8080 #the default port used for zuul service
-
+  
 #Option 2: Chapter 5 - Another method is specifying a service-route and configuring a Ribbon client for the serviceId (doing so requires disabling Eureka support in Ribbon)
 zuul:
   routes:
