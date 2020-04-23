@@ -8,6 +8,12 @@ zuul:
       path: /echo/**
       serviceId: echo-service #The name of the service to make the load balancing
       
+    auth-center:
+      path: /login/**
+      url: http://127.0.0.1:8081/
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
+      
 ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
   eureka:
     enabled: false
