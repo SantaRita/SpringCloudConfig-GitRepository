@@ -19,6 +19,8 @@ zuul:
       
 ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
   eureka:
+    ReadTimeout: 60000
+    ConnectTimeout: 60000    
     enabled: false
 echo-service:
   ribbon:
