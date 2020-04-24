@@ -1,12 +1,6 @@
 server:
   port: 8080 #the default port used for zuul service
   
-#Secret para acceso al token de Zuul
-security:
-  oauth2:
-    resource:
-      jwt:
-        key-value: 123
 
 #Option 2: Chapter 5 - Another method is specifying a service-route and configuring a Ribbon client for the serviceId (doing so requires disabling Eureka support in Ribbon)
 zuul:
@@ -23,6 +17,13 @@ zuul:
     oauth:
       path: /oauth/**
       url: http://localhost:8081/spring-security-oauth-server/oauth 
+      
+#Secret para acceso al token de Zuul
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123      
       
 ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
   eureka:
