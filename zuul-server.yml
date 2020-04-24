@@ -4,19 +4,22 @@ server:
 
 #Option 2: Chapter 5 - Another method is specifying a service-route and configuring a Ribbon client for the serviceId (doing so requires disabling Eureka support in Ribbon)
 zuul:
-  sensitiveHeaders: Cookie,Set-Cookie
   routes:
     echo-service:
       path: /echo/**
       serviceId: echo-service #The name of the service to make the load balancing
       
-    spring-security-oauth-resource:
-      path: /spring-security-oauth-resource/**
-      url: http://localhost:8082/spring-security-oauth-resource
+    auth-center:
+      path: /login/**
+      url: http://127.0.0.1:8081/
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
       
-    oauth:
-      path: /oauth/**
-      url: http://localhost:8081/spring-security-oauth-server/oauth 
+    backend-service:
+      path: /backend/**
+      url: http://127.0.0.1:8082/
+
+shuaicj.security.jwt.secret: otherpeopledontknowit
       
 ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
   eureka:
