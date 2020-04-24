@@ -2,7 +2,13 @@ server:
   port: 8080 #the default port used for zuul service
   
 #Secret para acceso al token de Zuul
-com.santarita.security.jwt.secret: asupersecretpassword
+com.santarita.security.jwt.secret: 
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123
 
 #Option 2: Chapter 5 - Another method is specifying a service-route and configuring a Ribbon client for the serviceId (doing so requires disabling Eureka support in Ribbon)
 zuul:
