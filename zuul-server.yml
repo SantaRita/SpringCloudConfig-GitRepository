@@ -2,8 +2,6 @@ server:
   port: 8080 #the default port used for zuul service
   
 #Secret para acceso al token de Zuul
-com.santarita.security.jwt.secret: 
-
 security:
   oauth2:
     resource:
