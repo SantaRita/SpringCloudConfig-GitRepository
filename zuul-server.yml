@@ -11,10 +11,13 @@ zuul:
       path: /echo/**
       serviceId: echo-service #The name of the service to make the load balancing
       
-    xxx-xxx:
-      path: /login/**
-      sensitiveHeaders: Cookie,Set-Cookie
-      stripPrefix: false
+    spring-security-oauth-resource:
+      path: /spring-security-oauth-resource/**
+      url: http://localhost:8082/spring-security-oauth-resource
+      
+    oauth:
+      path: /oauth/**
+      url: http://localhost:8081/spring-security-oauth-server/oauth 
       
 ribbon: # Eureka interface with Ribbon must be disabled so Ribbon will use the list of servers indicated below
   eureka:
